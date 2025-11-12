@@ -124,7 +124,7 @@ This removes stale pending/cancelled orders while preserving completed transacti
 ## 4️⃣ S3 Trigger Configuration ⚡
 
 ### Trigger Setup:
-- **Event Source:** S3 bucket `jeevith-itcs6190-assignment3`
+- **Event Source:** S3 bucket `asst3hrush`
 - **Event Type:** All object create events
 - **Prefix:** `raw/` (ensures trigger only fires for files in raw folder)
 - **Suffix:** `.csv` (only processes CSV files)
@@ -133,7 +133,7 @@ This removes stale pending/cancelled orders while preserving completed transacti
 The prefix and suffix filters prevent infinite loops (Lambda won't trigger on its own output in `processed/`) and ensure only relevant file types are processed. This event-driven architecture eliminates the need for scheduled jobs or manual intervention.
 
 ### Testing the Pipeline:
-1. Uploaded `Orders.csv` to `s3://jeevith-itcs6190-assignment3/raw/`
+1. Uploaded `Orders.csv` to `s3://asst3hrush/raw/`
 2. Lambda automatically triggered within seconds
 3. Verified `filtered_Orders.csv` appeared in `processed/` folder
 4. Checked CloudWatch Logs for processing statistics
